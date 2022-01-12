@@ -133,6 +133,7 @@ public class UserDao {
 		} catch (SQLException e) {
 				System.out.println("error: " + e);
 		}
+		
 		close();
 		return userVo;
 	}
