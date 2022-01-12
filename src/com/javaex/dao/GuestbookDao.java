@@ -126,11 +126,11 @@ public class GuestbookDao {
 		public int delete(GuestbookVo vo) {
 			
 			int count = 0;
-			
+
+			getConnection();
 
 			try {
 
-				getConnection();
 				
 				String query = "";
 				query += "delete from guestbook ";
