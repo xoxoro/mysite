@@ -127,9 +127,11 @@ public class GuestbookDao {
 			
 			int count = 0;
 			
-			getConnection();
 
 			try {
+
+				getConnection();
+				
 				String query = "";
 				query += "delete from guestbook ";
 				query += " where no = ?";	
@@ -140,6 +142,7 @@ public class GuestbookDao {
 				pstmt.setString(2, vo.getPassword()); //2번째 물음표
 				
 				count = pstmt.executeUpdate();
+				System.out.println(count + "건 삭제되었습니다.(GuestDao)");
 				
 			} catch (SQLException e) {
 				System.out.println("error: " + e);

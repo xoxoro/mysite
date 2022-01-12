@@ -71,10 +71,7 @@
 				<!-- //content-head -->
 	
 				<div id="guest">
-					<div id="deleteForm">
-						<form action="/mysite/guest" method="get">
-						<input type="hidden" name="action" value="delete">
-						<input type="hidden" name="no" value="<%=no%>">
+					<form action="/mysite/guest" method="get">
 						<table id="guestDelete">
 							<colgroup>
 								<col style="width: 10%;">
@@ -89,10 +86,10 @@
 								<td><a href="/mysite/main">[메인으로 돌아가기]</a></td>
 							</tr>
 						</table>
-						<input type='hidden' name="" value="">
-						<input type='hidden' name="" value="">
+						<input type="hidden" name="no" value="<%=no%>">
+						<input type="hidden" name="action" value="delete">
 					</form>
-					</div>
+				
 					<!-- //deleteForm -->
 				</div>
 				<!-- //guestbook -->
