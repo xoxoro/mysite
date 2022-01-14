@@ -18,6 +18,8 @@
 
 <body>
 	<div id="wrap">
+	<!-- header -->
+		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 
 		<div id="header" class="clearfix">
 			<h1>
@@ -134,9 +136,8 @@
 		</div>
 		<!-- //container  -->
 
-		<div id="footer">
-			Copyright ⓒ 2020 황일영. All right reserved
-		</div>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+
 		<!-- //footer -->
 	</div>
 	<!-- //wrap -->

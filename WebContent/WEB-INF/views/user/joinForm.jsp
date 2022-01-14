@@ -13,7 +13,9 @@
 
 <body>
 	<div id="wrap">
-
+	<!-- header -->
+		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+	
 		<div id="header" class="clearfix">
 			<h1>
 				<a href="">MySite</a>
@@ -135,6 +137,7 @@
 			Copyright ⓒ 2020 황일영. All right reserved
 		</div>
 		<!-- //footer -->
+	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 
 	</div>
 	<!-- //wrap -->

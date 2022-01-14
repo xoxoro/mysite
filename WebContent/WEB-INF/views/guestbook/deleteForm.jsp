@@ -14,6 +14,8 @@
 
 <body>
 	<div id="wrap">
+	<!-- header -->
+		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 
 		<div id="header" class="clearfix">
 			<h1>
@@ -86,8 +88,8 @@
 								<td><a href="/mysite/main">[메인으로 돌아가기]</a></td>
 							</tr>
 						</table>
-						<input type="hidden" name="no" value="<%=no%>">
-						<input type="hidden" name="action" value="delete">
+						<input type="text" name="no" value="<%=no%>">
+						<input type="text" name="action" value="delete">
 					</form>
 				
 					<!-- //deleteForm -->
@@ -103,6 +105,7 @@
 			Copyright ⓒ 2020 황일영. All right reserved
 		</div>
 		<!-- //footer -->
+	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 
 	</div>
 	<!-- //wrap -->
