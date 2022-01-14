@@ -15,10 +15,10 @@
 	<div id="wrap">
 
 		<!-- header -->
+		
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 	
-		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-
+		
 		<div id="container" class="clearfix">
 			<!-- aside 없음 -->
 			<div id="full-content">
