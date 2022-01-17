@@ -74,55 +74,55 @@
 				<div id="board">
 					<div id="modifyForm">
 						<form action="/mysite/board" method="get">
-	
-							<!-- 아이디 -->
+							<!-- 작성자 -->
 							<div class="form-group">
-								<label class="form-text" for="input-uid">아이디</label> 
-								<span class="text-large bold"><%=authUser.getName() %></span>
+								<span class="form-text">작성자</span>
+								<span class="form-value">${requestScope.boardVo.name}</span>
 							</div>
-	
-							<!-- 비밀번호 -->
+							
+							<!-- 조회수 -->
 							<div class="form-group">
-								<label class="form-text" for="input-pass">패스워드</label> 
-								<input type="text" id="input-pass" name="password" value="" placeholder="비밀번호를 입력하세요"	>
+								<span class="form-text">조회수</span>
+								<span class="form-value">${requestScope.boardVo.hit}</span>
 							</div>
-	
-							<!-- 이메일 -->
+							
+							<!-- 작성일 -->
 							<div class="form-group">
-								<label class="form-text" for="input-name">이름</label> 
-								<input type="text" id="input-name" name="name" value="" placeholder="이름을 입력하세요">
+								<span class="form-text">작성일</span>
+								<span class="form-value">${requestScope.boardVo.regDate}</span>
 							</div>
-	
-							<!-- //나이 -->
+							
+							<!-- 제목 -->
 							<div class="form-group">
-								<span class="form-text">성별</span> 
+								<label class="form-text" for="txt-title">제목</label>
+								<input type="text" id="txt-title" name="title" value="" placeholder="${requestScope.boardVo.title}">
+							</div>
+						
+							
+						
+							<!-- 내용 -->
+							<div class="form-group">
+								<textarea id="txt-content" name="content">
 								
-								<label for="rdo-male">남</label> 
-								<input type="radio" id="rdo-male" name="gender" value="male" > 
-								
-								<label for="rdo-female">여</label> 
-								<input type="radio" id="rdo-female" name="gender" value="female" > 
-	
+							</textarea>
 							</div>
-	
-							<!-- 버튼영역 -->
-							<div class="button-area">
-								<button type="submit" id="btn-submit">회원정보수정</button>
-							</div>
-							<input type="hidden" name="no" value="<%=authUser.getNo() %>">
+							
+							<a id="btn_cancel" href="/mysite/board?action=list">취소</a>							
+									<button id="btn_modify" type="submit" >수정</button>
 							<input type="hidden" name="action" value="modify">
+							<input type="hidden" name="id" value="${requestScope.boardVo.no}">
 						</form>
-					
-					
+						<!-- //form -->
 					</div>
 					<!-- //modifyForm -->
 				</div>
-				<!-- //user -->
+				<!-- //board -->
 			</div>
 			<!-- //content  -->
 
 		</div>
 		<!-- //container  -->
+
 
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 		
