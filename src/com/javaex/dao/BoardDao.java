@@ -100,10 +100,10 @@ public class BoardDao {
 			return boardList;
 	}
 	
-	///리스트 중 하나 (회원 no받고 출력)
+	//리스트 중 하나 (회원 no받고 출력)
 	public BoardVo getList(int index) {
 		
-		BoardVo boardvo = null;
+		BoardVo boardVo = null;
 		getConnection();
 		
 		try {
@@ -118,7 +118,7 @@ public class BoardDao {
 			query += "         name ";
 			query += " from board bo, users us ";
 			query += " where bo.user_no = us.no ";
-			query += " and		bo.no = ? ";
+			query += " and	   bo.no = ? ";
 			
 			pstmt = conn.prepareStatement(query);
 				
@@ -137,17 +137,17 @@ public class BoardDao {
 			String name = rs.getString("name");
 			
 			
-			boardvo = new BoardVo(no, title, content, hit, regDate, userno, name);
+			boardVo = new BoardVo(no, title, content, hit, regDate, userno, name);
 			
-		
-			//System.out.println(boardvo);
+			System.out.println(boardVo);
+			
 		}
 		}catch (SQLException e) {
 			System.out.println("error:" + e);
 		}
 
 		close();
-		return boardvo;
+		return boardVo;
 	}
 
 	
@@ -221,11 +221,11 @@ public class BoardDao {
 			
 			pstmt = conn.prepareStatement(query); // 쿼리로 만들기
 			
-			pstmt.setString(1, boardVo.getTitle()); // ?(물음표) 중 1번째, 순서중요
-			pstmt.setString(2, boardVo.getContent()); // ?(물음표) 중 2번째, 순서중요
-			pstmt.setInt(3, boardVo.getNo()); // ?(물음표) 중 3번째, 순서중요
+			pstmt.setString(1, boardVo.getTitle()); //첫번째 물음표
+			pstmt.setString(2, boardVo.getContent()); //두번째 물음표
+			pstmt.setInt(3, boardVo.getNo()); //세번째 물음표
 			
-			count = pstmt.executeUpdate(); // 쿼리문 실행
+			count = pstmt.executeUpdate();
 			System.out.println(count + "건 삭제되었습니다.(GuestDao)");
 			
 			
