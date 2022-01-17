@@ -54,7 +54,7 @@
 	
 				<div id="board">
 					<div id="list">
-						<form action="" method="">
+						<form action="" method="get">
 							<div class="form-group text-right">
 								<input type="text">
 								<button type="submit" id=btn_search>검색</button>
@@ -110,13 +110,10 @@
 							
 							<div class="clear"></div>
 						</div>
-						<c:choose>
-                     		<c:when test="${empty sessionScope.authUser}">
-                     		</c:when>
-                     		<c:otherwise>
-								<a id="btn_write" href="/mysite/board?action=writeForm">글쓰기</a>
-						    </c:otherwise>
-                  		</c:choose>
+						
+						<c:if test="${!empty sessionScope.authUser}">
+							<a id="btn_write" href="/mysite/board?action=writeForm">글쓰기</a>
+						</c:if>
 					
 					</div>
 					<!-- //list -->
