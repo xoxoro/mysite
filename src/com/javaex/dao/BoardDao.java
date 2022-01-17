@@ -109,13 +109,13 @@ public class BoardDao {
 		try {
 			
 			String query = "";
-			query += " select  bo.no no, ";
-			query += "         title, ";
-			query += "         content, ";
-			query += "         hit, ";
-			query += "         to_char(reg_date, 'yyyy-mm-dd') reg_date, ";
-			query += "         bo.user_no user_no, ";
-			query += "         name ";
+			query += " select  bo.no no ";
+			query += "         ,title ";
+			query += "         ,content ";
+			query += "         ,hit ";
+			query += "         ,to_char(reg_date, 'yyyy-mm-dd AMHH:MI:SS') reg_date ";
+			query += "         ,bo.user_no user_no ";
+			query += "         ,name ";
 			query += " from board bo, users us ";
 			query += " where bo.user_no = us.no ";
 			query += " and	   bo.no = ? ";
@@ -215,8 +215,8 @@ public class BoardDao {
 			
 			String query = "";
 			query += " update board ";
-			query += " set title = ?, ";
-			query += "     content = ? ";
+			query += " set title = ? ";
+			query += "     ,content = ? ";
 			query += " where no = ? ";
 			
 			pstmt = conn.prepareStatement(query); // 쿼리로 만들기
