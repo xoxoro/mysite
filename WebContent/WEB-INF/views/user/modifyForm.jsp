@@ -1,15 +1,10 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
-    
 <%@ page import="com.javaex.vo.UserVo" %>
-<%@ page import="com.javaex.dao.UserDao" %>
-    
 <%
-	UserVo authUser = (UserVo)session.getAttribute("authUser");
-  	//인증된 유저정보
-	UserVo userinfo = (UserVo)request.getAttribute("userinfo");
-%>
+	UserVo authUser = (UserVo)session.getAttribute("authUser"); //반쯤 외워버리긔
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +12,40 @@
 <title>Insert title here</title>
 <link href="/mysite/assets/css/mysite.css" rel="stylesheet" type="text/css">
 <link href="/mysite/assets/css/user.css" rel="stylesheet" type="text/css">
-
 </head>
-
-
+<body>
 <body>
 	<div id="wrap">
 
-		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+		<div id="header" class="clearfix">
+			<h1>
+				<a href="/mysite/main">MySite</a>
+			</h1>
+
+			<!-- 
+			<ul>
+				<li>황일영 님 안녕하세요^^</li>
+				<li><a href="" class="btn_s">로그아웃</a></li>
+				<li><a href="" class="btn_s">회원정보수정</a></li>
+			</ul>
+			-->	
+			<ul>
+				<li><a href="/mysite/user?action=loginForm" class="btn_s">로그인</a></li>
+				<li><a href="/mysite/user?action=joinForm" class="btn_s">회원가입</a></li>
+			</ul>
+			
+		</div>
+		<!-- //header -->
+
+		<div id="nav">
+			<ul class="clearfix">
+				<li><a href="">입사지원서</a></li>
+				<li><a href="">게시판</a></li>
+				<li><a href="">갤러리</a></li>
+				<li><a href="">방명록</a></li>
+			</ul>
+		</div>
+		<!-- //nav -->
 
 		<div id="container" class="clearfix">
 			<div id="aside">
@@ -54,52 +75,42 @@
 	
 				<div id="user">
 					<div id="modifyForm">
-						<form action="" method="">
+						<form action="/mysite/user" method="get">
 	
 							<!-- 아이디 -->
 							<div class="form-group">
 								<label class="form-text" for="input-uid">아이디</label> 
-								<span class="text-large bold"><%=userinfo.getId()%></span>
+								<span class="text-large bold"><%=authUser.getName() %></span>
 							</div>
 	
 							<!-- 비밀번호 -->
 							<div class="form-group">
 								<label class="form-text" for="input-pass">패스워드</label> 
-								<input type="text" id="input-pass" name="password" value="<%=userinfo.getPassword() %>" placeholder="비밀번호를 입력하세요"	>
+								<input type="text" id="input-pass" name="password" value="" placeholder="비밀번호를 입력하세요"	>
 							</div>
 	
-							<!-- 이름 -->
+							<!-- 이메일 -->
 							<div class="form-group">
 								<label class="form-text" for="input-name">이름</label> 
-								<input type="text" id="input-name" name="name" value="<%=userinfo.getName() %>" placeholder="이름을 입력하세요">
+								<input type="text" id="input-name" name="name" value="" placeholder="이름을 입력하세요">
 							</div>
 	
-							<!-- 성별 -->
+							<!-- //나이 -->
 							<div class="form-group">
 								<span class="form-text">성별</span> 
 								
-								<c:choose>
-									<c:when test="${requestScope.userinfo.gender eq 'male' }">				
-										<label for="rdo-male">남</label> 
-										<input type="radio" id="rdo-male" name="gender" value="male" checked="checked"> 
-										<label for="rdo-female">여</label> 
-										<input type="radio" id="rdo-female" name="gender" value="female"> 
-									</c:when>
-									<c:otherwise>																	
-										<label for="rdo-male">남</label> 
-										<input type="radio" id="rdo-male" name="gender" value="male"> 
-										<label for="rdo-female">여</label> 
-										<input type="radio" id="rdo-female" name="gender" value="female" checked="checked">
-										
-									</c:otherwise>
-								</c:choose>	
+								<label for="rdo-male">남</label> 
+								<input type="radio" id="rdo-male" name="gender" value="male" > 
+								
+								<label for="rdo-female">여</label> 
+								<input type="radio" id="rdo-female" name="gender" value="female" > 
+	
 							</div>
 	
 							<!-- 버튼영역 -->
 							<div class="button-area">
-								<button type="submit" id="btn-submit">회원정보수정</button>						
+								<button type="submit" id="btn-submit">회원정보수정</button>
 							</div>
-							
 							<input type="hidden" name="no" value="<%=authUser.getNo() %>">
 							<input type="hidden" name="action" value="modify">
 						</form>
@@ -115,12 +126,13 @@
 		</div>
 		<!-- //container  -->
 
-		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+		<div id="footer">
+			Copyright ⓒ 2020 심유정. All right reserved
+		</div>
+		<!-- //footer -->
 		
 	</div>
 	<!-- //wrap -->
-	
-	
-</body>
 
+</body>
 </html>
