@@ -71,6 +71,7 @@ public class BoardDao {
 		query += "         ,name ";
 		query += " from board bo, users us ";
 		query += " where bo.user_no = us.no ";
+		query += " order by reg_date desc ";
 		
 		pstmt = conn.prepareStatement(query);
 		rs = pstmt.executeQuery();
@@ -80,17 +81,18 @@ public class BoardDao {
 		while(rs.next()) {
 			
 			int no = rs.getInt("bo.user_no");
-			String name = rs.getString("name");
 			String title = rs. getString("title");
 			String content = rs.getString("content");
-			String regDate = rs.getString("reg_date");
 			int hit = rs.getInt("hit");
+			String regDate = rs.getString("reg_date");
 			int userno = rs.getInt("bo.user_no");
+			String name = rs.getString("name");
 			
 			BoardVo boardVo = new BoardVo(no, title, content, hit, regDate, userno, name);
 			
 			boardList.add(boardVo);
 			}
+		
 		}	catch (SQLException e) {
 			System.out.println("error:" + e);
 			}		
