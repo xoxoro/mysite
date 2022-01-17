@@ -34,7 +34,7 @@ public class BoardController extends HttpServlet {
 			 
 			System.out.println(boardList);
 		
-		}else if("read".equals(act)) {
+		} else if("read".equals(act)) {
 			
 			int no = Integer.parseInt(request.getParameter("no"));
 			
@@ -49,9 +49,7 @@ public class BoardController extends HttpServlet {
 		
 			System.out.println("게시판에 쓴글 읽기");
 		
-		
-		
-		}else if("modifyForm".equals(act)) {
+		} else if("modifyForm".equals(act)) {
 			
 			int no = Integer.parseInt(request.getParameter("no"));
 
@@ -64,7 +62,7 @@ public class BoardController extends HttpServlet {
 			System.out.println("modifyForm");
 		
 		
-		}else if("modify".equals(act)) {
+		} else if("modify".equals(act)) {
 			
 			System.out.println("modify");
 			
@@ -87,15 +85,13 @@ public class BoardController extends HttpServlet {
 			//리다이렉트
 			WebUtil.redirect(request, response, "/mysite/board?action=list");
 			
-			
-			
-		}else if("writeForm".equals(act)) {
+		} else if("writeForm".equals(act)) {
 			//포워드
 			WebUtil.forward(request, response, "/WEB-INF/views/board/writeForm.jsp");
 		
 			System.out.println("writeForm");
 			
-		}else if("boardWrite".equals(act)) {
+		} else if("boardWrite".equals(act)) {
 			
 			System.out.println("boardWrite");
 			
@@ -117,7 +113,7 @@ public class BoardController extends HttpServlet {
 			
 			WebUtil.redirect(request, response, "/mysite/board?action=list");		
 		
-		}else if("delete".equals(act)) {
+		} else if("delete".equals(act)) {
 			
 			System.out.println("삭제중...");
 			

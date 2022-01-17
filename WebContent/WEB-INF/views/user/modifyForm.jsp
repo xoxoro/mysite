@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.javaex.vo.UserVo" %>
 <%
-	UserVo authUser = (UserVo)session.getAttribute("authUser"); //반쯤 외워버리긔
+	UserVo authUser = (UserVo)session.getAttribute("authUser");
 %>    
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
 <body>
 <body>
 	<div id="wrap">
-
+		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 		<div id="header" class="clearfix">
 			<h1>
 				<a href="/mysite/main">MySite</a>
@@ -71,9 +71,9 @@
 				</div>
 				 <!-- //content-head -->
 	
-				<div id="user">
+				<div id="board">
 					<div id="modifyForm">
-						<form action="/mysite/user" method="get">
+						<form action="/mysite/board" method="get">
 	
 							<!-- 아이디 -->
 							<div class="form-group">
@@ -124,9 +124,8 @@
 		</div>
 		<!-- //container  -->
 
-		<div id="footer">
-			Copyright ⓒ 2020 심유정. All right reserved
-		</div>
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+		
 		<!-- //footer -->
 		
 	</div>
