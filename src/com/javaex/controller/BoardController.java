@@ -24,6 +24,7 @@ public class BoardController extends HttpServlet {
 		String act = request.getParameter("action");
 		
 		if("list".equals(act)) {
+			System.out.println("list보인다");
 			
 			List<BoardVo> boardList = new BoardDao().getList();
 
@@ -87,13 +88,13 @@ public class BoardController extends HttpServlet {
 			
 		} else if("writeForm".equals(act)) {
 			//포워드
-			WebUtil.forward(request, response, "/WEB-INF/views/board/writeForm.jsp");
+			System.out.println("writeForm된다");
+			WebUtil.forward(request, response, "/WEB-INF/views/board/WriteForm.jsp");
 		
-			System.out.println("writeForm");
 			
 		} else if("boardWrite".equals(act)) {
 			
-			System.out.println("boardWrite");
+			System.out.println("boardWrite된다");
 			
 			
 			HttpSession session = request.getSession();

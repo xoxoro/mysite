@@ -67,7 +67,7 @@ public class BoardDao {
 		query += "         ,content ";
 		query += "         ,hit ";
 		query += "         ,to_char(reg_date, 'yyyy-mm-dd AMHH24:MI:SS') reg_date ";
-		query += "         ,bo.user_no ";
+		query += "         ,bo.user_no num ";
 		query += "         ,name ";
 		query += " from board bo, users us ";
 		query += " where bo.user_no = us.no ";
@@ -80,12 +80,12 @@ public class BoardDao {
 		
 		while(rs.next()) {
 			
-			int no = rs.getInt("bo.user_no");
+			int no = rs.getInt("no");
 			String title = rs. getString("title");
 			String content = rs.getString("content");
 			int hit = rs.getInt("hit");
 			String regDate = rs.getString("reg_date");
-			int userno = rs.getInt("bo.user_no");
+			int userno = rs.getInt("num");
 			String name = rs.getString("name");
 			
 			BoardVo boardVo = new BoardVo(no, title, content, hit, regDate, userno, name);
@@ -137,7 +137,6 @@ public class BoardDao {
 			String regDate = rs.getString("reg_date");
 			int userno = rs.getInt("user_no");
 			String name = rs.getString("name");
-			
 			
 			boardVo = new BoardVo(no, title, content, hit, regDate, userno, name);
 			
@@ -212,6 +211,7 @@ public class BoardDao {
 		int count = 0;
 		getConnection();
 		
+		System.out.println("modify 출력중..");
 		
 		try {
 			
