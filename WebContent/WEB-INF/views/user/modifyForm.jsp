@@ -98,8 +98,6 @@
 								<input type="text" id="txt-title" name="title" value="" placeholder="${requestScope.boardVo.title}">
 							</div>
 						
-							
-						
 							<!-- 내용 -->
 							<div class="form-group">
 								<textarea id="txt-content" name="content">
