@@ -98,9 +98,8 @@
 		<!-- //container  -->
 
 
-		<div id="footer">
-			Copyright ⓒ 2020 심유정. All right reserved
-		</div>
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+		
 		<!-- //footer -->
 	</div>
 	<!-- //wrap -->
