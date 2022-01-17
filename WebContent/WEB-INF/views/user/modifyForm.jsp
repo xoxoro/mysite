@@ -1,6 +1,5 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.javaex.vo.UserVo" %>
 <%
 	UserVo authUser = (UserVo)session.getAttribute("authUser"); //반쯤 외워버리긔
@@ -11,8 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/mysite/assets/css/mysite.css" rel="stylesheet" type="text/css">
-<link href="/mysite/assets/css/user.css" rel="stylesheet" type="text/css">
-</head>
+<link href="/mysite/assets/css/board.css" rel="stylesheet" type="text/css"></head>
 <body>
 <body>
 	<div id="wrap">

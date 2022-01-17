@@ -1,19 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>]
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="../../assets/css/mysite.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/board.css" rel="stylesheet" type="text/css">
-
+<link href="/mysite/assets/css/mysite.css" rel="stylesheet" type="text/css">
+<link href="/mysite/assets/css/board.css" rel="stylesheet" type="text/css">
 </head>
 
 
 <body>
 	<div id="wrap">
-
+		
+		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+		
 		<div id="header" class="clearfix">
 			<h1>
 				<a href="">MySite</a>
@@ -100,9 +101,8 @@
 		<!-- //container  -->
 
 
-		<div id="footer">
-			Copyright ⓒ 2020 황일영. All right reserved
-		</div>
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+		
 		<!-- //footer -->
 	</div>
 	<!-- //wrap -->
