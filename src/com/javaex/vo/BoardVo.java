@@ -15,7 +15,7 @@ public class BoardVo {
 
 	}
 	
-	public BoardVo(int no, String name, String title,String content , String regDate ,int hit ,int userNo) {
+	public BoardVo(int no, String title, String content , int hit, String regDate , int userNo, String name) {
 		this.no = no;
 		this.title = title;
 		this.content = content;

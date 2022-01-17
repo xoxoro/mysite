@@ -87,7 +87,7 @@ public class BoardDao {
 			int hit = rs.getInt("hit");
 			int userno = rs.getInt("bo.user_no");
 			
-			BoardVo boardVo = new BoardVo(no, name, title, content, regDate, hit, userno);
+			BoardVo boardVo = new BoardVo(no, title, content, hit, regDate, userno, name);
 			
 			boardList.add(boardVo);
 			}
@@ -99,8 +99,59 @@ public class BoardDao {
 			close();
 			return boardList;
 	}
+	
+	///리스트 중 하나 (회원 no받고 출력)
+	public BoardVo getList(int index) {
+		
+		BoardVo boardvo = null;
+		getConnection();
+		
+		try {
+			
+			String query = "";
+			query += " select  bo.no no, ";
+			query += "         title, ";
+			query += "         content, ";
+			query += "         hit, ";
+			query += "         to_char(reg_date, 'yyyy-mm-dd') reg_date, ";
+			query += "         bo.user_no user_no, ";
+			query += "         name ";
+			query += " from board bo, users us ";
+			query += " where bo.user_no = us.no ";
+			query += " and		bo.no = ? ";
+			
+			pstmt = conn.prepareStatement(query);
+				
+			pstmt.setInt(1, index);
+			
+			rs = pstmt.executeQuery();
+			
+			
+		while(rs.next()) {
+			int no = rs.getInt("no");
+			String title = rs.getString("title");
+			String content = rs. getString("content");
+			int hit = rs.getInt("hit");
+			String regDate = rs.getString("reg_date");
+			int userno = rs.getInt("user_no");
+			String name = rs.getString("name");
+			
+			
+			boardvo = new BoardVo(no, title, content, hit, regDate, userno, name);
+			
+		
+			//System.out.println(boardvo);
+		}
+		}catch (SQLException e) {
+			System.out.println("error:" + e);
+		}
+
+		close();
+		return boardvo;
+	}
 
 	
+	//등록
 	public int boardInsert(BoardVo boardVo) {
 		int count = 0;
 		getConnection();
